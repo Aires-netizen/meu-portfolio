@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem Vindo ao Meu CV</title>
+    <!-- Inclua o Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #001f3f;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        body.light-mode {
+            background-color: #fff;
+            color: #001f3f;
+        }
+        body.dark-mode {
+            background-color: #001f3f;
+            color: #fff;
+        }
+        body.loaded {
+            opacity: 1;
+        }
+        nav {
+            background-color: transparent;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            z-index: 1000;
+        }
+        nav.scrolled {
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        .theme-toggle {
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+        }
+        section {
+            padding: 100px 50px;
+            text-align: center;
+            min-height: 100vh;
+        }
+        h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            padding: 50px;
+            align-items: center;
+            height: 90vh;
+        }
+        .hero-text {
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 1.5;
+            color: #00ffff;
+        }
+        .hero-text p {
+            font-size: 18px;
+        }
+        .hero img {
+            max-width: 40%;
+            border-radius: 10px;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            color: #000;
+        }
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #000;
+        }
+        table th {
+            background-color: #00ffff;
+        }
+        table tr:hover {
+            background-color: #f0f0f0;
+        }
+        .gallery, .portfolio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        .gallery img, .portfolio img {
+            width: 100%;
+            transition: transform 0.3s;
+            border-radius: 10px;
+        }
+        .gallery img:hover, .portfolio img:hover {
+            transform: scale(1.1);
+        }
+        .portfolio-item {
+            text-align: left;
+        }
+        .portfolio-item p {
+            margin-top: 10px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form input {
+            margin: 10px;
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 5px;
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #00ffff;
+            color: #001f3f;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #001f3f;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        /* Animação de transição entre seções */
+        section {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        section.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body onload="initializeTheme()" class="loaded">
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="logo">Aires</div>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre-mim">Sobre Mim</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#portfolio">Portfólio</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <span class="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i> <!-- Ícone da lua do Font Awesome -->
+        </span>
+    </nav>
+
+    <!-- Início -->
+    <section id="inicio" class="hero">
+        <div class="hero-text">
+            <h1>Bem Vindo ao Meu CV</h1>
+            <p>Olá, eu sou Aires Manjate, sou técnico em administração de redes. Tenho experiência em garantir a segurança, desempenho e manutenção de redes de computadores, sou eficiente e inovador.</p>
+            <div class="social-icons">
+                <a href="https://wa.me/qr/GHU26VFPRYORA1" target="_blank">
+                    <img src="./Bem Vindo ao Meu CV_files/logo.png" alt="WhatsApp" style="width: 40px; height: 40px;">
+                </a>
+                <a href="https://www.instagram.com/aires_h_manjate?igsh=c2o3MDBjcXJsanY3" target="_blank">
+                    <img src="./Bem Vindo ao Meu CV_files/Instagram_icon.png" alt="Instagram" style="width: 40px; height: 40px;">
+                </a>
+            </div>
+        </div>
+        <img src="./Bem Vindo ao Meu CV_files/WhatsApp Image 2024-09-11 at 18.46.48.jpeg" alt="Foto de Aires Manjate">
+    </section>
+
+    <!-- Sobre Mim -->
+    <section id="sobre-mim">
+        <h2>Sobre Mim</h2>
+        <p>Meu nome é Aires Manjate, sou um profissional com experiência em desenvolvimento web e manutenção de computadores.</p>
+
+        <h3>Formação e Educação</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Instituição</th>
+                    <th>Curso</th>
+                    <th>Ano</th>
+                </tr>
+                <tr>
+                    <td>Escola Primária de Malhampsene</td>
+                    <td>7ª Classe</td>
+                    <td>2019</td>
+                </tr>
+                <tr>
+                    <td>Escola Secundária de Malhampsene</td>
+                    <td>10ª Classe</td>
+                    <td>2022</td>
+                </tr>
+                <tr>
+                    <td>Instituto de Transportes e Comunicações</td>
+                    <td>Electricidade Industrial CV3</td>
+                    <td>2023 - 2024</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Domínio de Línguas</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Língua</th>
+                    <th>Nível</th>
+                </tr>
+                <tr>
+                    <td>Português</td>
+                    <td>Fluente</td>
+                </tr>
+                <tr>
+                    <td>Inglês</td>
+                    <td>Intermediário</td>
+                </tr>
+                <tr>
+                    <td>Francês</td>
+                    <td>Básico</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Habilidades -->
+    <section id="habilidades">
+        <h2>Habilidades</h2>
+        <p>Aqui estão algumas das minhas habilidades:</p>
+        <div class="skill">
+            <h3>HTML</h3>
+            <div class="progress-bar" style="width: 80%;"></div>
+            <p>80%</p>
+        </div>
+        <div class="skill">
+            <h3>CSS</h3>
+            <div class="progress-bar" style="width: 70%;"></div>
+            <p>70%</p>
+        </div>
+        <div class="skill">
+            <h3>JavaScript</h3>
+            <div class="progress-bar" style="width: 60%;"></div>
+            <p>60%</p>
+        </div>
+    </section>
+
+    <!-- Portfólio -->
+    <section id="portfolio">
+        <h2>Portfólio</h2>
+        <div class="portfolio">
+            <div class="portfolio-item">
+                <h3>Projeto 1</h3>
+                <img src="projeto1.jpg" alt="Projeto 1">
+                <p>Descrição do projeto 1.</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Projeto 2</h3>
+                <img src="projeto2.jpg" alt="Projeto 2">
+                <p>Descrição do projeto 2.</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Projeto 3</h3>
+                <img src="projeto3.jpg" alt="Projeto 3">
+                <p>Descrição do projeto 3.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria -->
+    <section id="galeria">
+        <h2>Galeria</h2>
+        <div class="gallery">
+            <img src="foto1.jpg" alt="Galeria 1">
+            <img src="foto2.jpg" alt="Galeria 2">
+            <img src="foto3.jpg" alt="Galeria 3">
+            <img src="foto4.jpg" alt="Galeria 4">
+            <img src="foto5.jpg" alt="Galeria 5">
+            <img src="foto6.jpg" alt="Galeria 6">
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>Você pode entrar em contato comigo através dos seguintes meios:</p>
+        <form action="enviar_formulario.php" method="post">
+            <input type="text" name="nome" placeholder="Nome" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <p>Endereço: Tsalala Q180 C27</p>
+        <p>Telefone: 872076337</p>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Aires Manjate. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Função para alternar entre modos claro e escuro
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            body.classList.remove(`${currentTheme}-mode`);
+            body.classList.add(`${newTheme}-mode`);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Função para inicializar o tema com base na preferência do usuário
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.classList.add(`${savedTheme}-mode`);
+            } else {
+                document.body.classList.add('dark-mode'); // Tema padrão
+            }
+        }
+
+        // Adiciona a classe 'scrolled' ao navbar quando o usuário rola a página
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Inicializa o tema ao carregar a página
+        window.addEventListener('load', () => {
+            initializeTheme();
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
